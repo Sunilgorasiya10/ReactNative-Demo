@@ -11,7 +11,7 @@ export default class DesignScreen extends Component {
 
   componentDidMount = async() => {
     let asyncData = await AsyncStorage.getItem('MyKey');
-    console.log('Design Screen',asyncData);
+    // console.log('Design Screen',asyncData);
   }
 
   render() {
