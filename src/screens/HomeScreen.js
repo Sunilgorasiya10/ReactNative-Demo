@@ -67,7 +67,16 @@ export default class HomeScreen extends Component{
                     </TouchableOpacity>
                 </View>
                 <View>
-                    
+                    <TouchableOpacity style = {styles.btnStyele} onPress = {() => this.props.navigation.navigate('ChessBoard')}>
+                        <Text style={styles.textStyle}>{'ChessBoard'}</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                <View>
+                    <TouchableOpacity style = {styles.btnStyele} onPress = {() => this.props.navigation.navigate('DesignFlatlist')}>
+                        <Text style={styles.textStyle}>{'DesignFlatlist'}</Text>
+                    </TouchableOpacity>
+                </View>
                 </View>
             </View>
         );
@@ -80,7 +89,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         // alignItems: 'center',
         // justifyContent: 'center',
-        backgroundColor: 'lightblue'
+        backgroundColor: 'lightblue',
+        flexWrap : 'wrap'
     },
 
     textStyle: {

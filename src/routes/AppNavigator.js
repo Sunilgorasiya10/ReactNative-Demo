@@ -9,6 +9,8 @@ import ImageTouchable from '../screens/ImageTouchable';
 import List from '../screens/List';
 import Dashboard from '../screens/Dashboard';
 import PanResponderDemo from '../screens/PanResponder';
+import ChessBoard from '../screens/ChessBoard';
+import DesignFlatlist from '../screens/DesignFlatlist';
 
 const AutoStack = createStackNavigator({
     HomeScreen : {screen: HomeScreen},
@@ -20,6 +22,8 @@ const AutoStack = createStackNavigator({
     List : {screen: List},
     Dashboard : {screen: Dashboard},
     PanResponderDemo: {screen: PanResponderDemo},
+    ChessBoard : {screen : ChessBoard},
+    DesignFlatlist : {screen : DesignFlatlist},
 },{
     headerMode:'none',
 });
