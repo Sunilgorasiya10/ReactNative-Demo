@@ -84,4 +84,6 @@ const styles = StyleSheet.create({
         height : width / 8,
         width : width / 8,
     }
+
+    
 })
