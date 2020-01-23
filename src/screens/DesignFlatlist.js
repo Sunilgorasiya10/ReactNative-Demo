@@ -31,7 +31,7 @@ const DATA = [
         color: '#0b51d2',
         dec: "Lorem ipsum dolor sit amet,",
         dec2: "vis no is erroribus  hendreit.",
-    },{
+    }, {
         image: source = (AppImages.stomatology),
         name: 'Stomatology',
         color: '#fcb502',
@@ -63,9 +63,9 @@ const DATA = [
 ]
 
 export default class DesignFlatlist extends Component {
-    
-    onItemDelete=(ind)=>{
-        alert('Index: '+ind)
+
+    onItemDelete = (ind) => {
+        alert('Index: ' + ind)
     }
     render() {
         // console.log(ExtStyle.contain)
@@ -92,9 +92,10 @@ export default class DesignFlatlist extends Component {
                 <View style={styles.detailContainer}>
                     <FlatList
                         data={DATA}
+                        keyExtractor={(item, index) => index.toString()}
                         // numColumns = {1}
                         renderItem={({ item, index }) =>
-                            <View style={{ flex :1 ,flexDirection: 'row',}}>
+                            <View style={{ flex: 1, flexDirection: 'row', }}>
                                 <View style={styles.imageContainer}>
                                     <Image source={item.image} style={styles.imageStyle}></Image>
                                 </View>
@@ -102,15 +103,15 @@ export default class DesignFlatlist extends Component {
                                     <Text style={[styles.titleStyle, { color: item.color, textAlign: 'center', marginTop: 15 }]}>{item.name}</Text>
                                     <Text style={{ color: '#0b51d2', fontSize: 12 }}>{item.dec}</Text>
                                     <Text style={{ color: '#0b51d2', fontSize: 12 }}>{item.dec2}</Text>
-                                    <View style = {styles.btnViewStyle}>
-                                    <TouchableOpacity onPress={()=> this.onItemDelete(index)} 
-                                    
-                                    style={[styles.btnStyle, { backgroundColor: item.color }]}>
-                                        <Text style={{ color: 'white', }}>Delete</Text>
-                                    </TouchableOpacity>
+                                    <View style={styles.btnViewStyle}>
+                                        <TouchableOpacity onPress={() => this.onItemDelete(index)}
+
+                                            style={[styles.btnStyle, { backgroundColor: item.color }]}>
+                                            <Text style={{ color: 'white', }}>Delete</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
-                                </View>
-                                
+
 
                             </View>
                         }
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
-    btnStyle : {
+    btnStyle: {
         height: 30,
         width: 75,
         borderRadius: 5,

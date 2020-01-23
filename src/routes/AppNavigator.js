@@ -56,55 +56,41 @@ const DrawerStackNavigator = createDrawerNavigator({
     contentComponent: () => <DrawerComponent />
 })
 
-const tabNavigation = createBottomTabNavigator({
+const TabNavigation = createBottomTabNavigator({
+    DesignFlatlist: {
+        screen: DesignFlatlist,
+
+        navigationOptions: {
+            title: 'Login',
+            tabBarIcon: () => (
+                <Image style={{ height: 20, width: 20 }} source={AppImages.password_icon}></Image>
+            ),
+        },
+
+    },
+
     Login: {
         screen: Login,
         navigationOptions: {
-            title: 'Login',
-            activeTintColor: 'red',
+            title: 'Signup',
             tabBarIcon: () => (
-                < Image style={{ height: 20, width: 20 }} source={AppImages.password_icon} ></Image>
+                <Image style={{ height: 20, width: 20 }} source={AppImages.phone_icon}></Image>
             ),
-            labelStyle: {
-                fontSize: 16,
-                textAlign: 'center',
-            },
-            style: {
-                backgroundColor: 'yellow',
-            }
-        }
-    },
-    DesignFlatlist: {
-        screen: DesignFlatlist,
-        navigationOptions: {
-            title: 'Login',
-            tabBarIcon: () => (
-                < Image style={{ height: 20, width: 20 }} source={AppImages.phone_icon} ></Image>
-            ),
-            labelStyle: {
-                fontSize: 16,
-                textAlign: 'center',
-            },
-            style: {
-                backgroundColor: 'black',
-            }
-        }
+        },
     },
 }, {
     tabBarOptions: {
-        activeTintColor: 'yellow',
-        showIcon: true,
+        activeTintColor: 'red',
+        inactiveTintColor: 'grey',
         showLabel: true,
         style: {
-            backgroundColor: 'white',
-            alignItems: 'center',
-            justifyContent: 'center'
+            backgroundColor: 'aqua',
         }
     },
 })
 
 const AuthStack = createStackNavigator({
-    tabNavigation,
+    TabNavigation,
     AutoStack,
     DrawerStackNavigator
 }, {
