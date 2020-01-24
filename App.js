@@ -13,10 +13,10 @@ import {
 import AppNavigator from './src/routes/AppNavigator';
 
 
-export default class App extends Component{
-  render(){
-    return(
-        <AppNavigator />
+export default class App extends Component {
+  render() {
+    return (
+      <AppNavigator />
     );
   }
 }
