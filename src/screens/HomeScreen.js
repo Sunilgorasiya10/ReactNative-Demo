@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { withNavigation, NavigationActions } from 'react-navigation';
-import { DrawerActions } from 'react-navigation-drawer';
 
 const DATA = [
     {
@@ -53,10 +52,22 @@ const DATA = [
         btnName: 'Favorite',
         screenName: 'FavoriteList'
     },
+    {
+        btnName: 'Lodash',
+        screenName: 'LodashDemo'
+    },
+    {
+        btnName: 'CalendarDemo',
+        screenName: 'CalendarDemo'
+    },
+    {
+        btnName: 'ReduxDemo',
+        screenName: 'ReduxDemo'
+    },
 
 ]
 
-class HomeScreen extends Component {
+export default class HomeScreen extends Component {
 
     constructor(props) {
         super(props)
@@ -89,7 +100,7 @@ class HomeScreen extends Component {
                         </View>
                     }
                 />
-                <TouchableOpacity onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}>
+                <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
                     <Text>{'DrawerMenu'}</Text>
                 </TouchableOpacity>
 
@@ -109,8 +120,6 @@ class HomeScreen extends Component {
         );
     }
 }
-
-export default withNavigation(HomeScreen);
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -138,6 +147,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
-
 })

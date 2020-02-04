@@ -103,6 +103,7 @@ export default class FavoriteList extends Component {
             <View style={styles.container}>
                 <FlatList
                     data={this.state.data}
+                    keyExtractor={(index) => index.toString()}
                     renderItem={this.renderClassItem}
                 />
             </View>

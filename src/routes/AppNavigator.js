@@ -21,20 +21,31 @@ import DrawerComponent from '../components/DrawerComponent';
 import AppImages from '../image';
 import React from 'react';
 import { Image } from 'react-native';
+import LodashDemo from '../screens/LodashDemo';
+import CalendarDemo from '../screens/CalendarDemo';
+import ReduxDemo from '../screens/ReduxDemo';
 
-// const DrawerNavigator = createStackNavigator({
-//     List: { screen: List },
-//     Login: { screen: Login }
-// });
+const DrawerNavigator = createStackNavigator({
+    HomeScreen: { screen: HomeScreen },
+    Dashboard: { screen: Dashboard },
+    List: { screen: List },
+    Login: { screen: Login },
+    FlexLayout1: { screen: FlexLayout1 },
+    FlexLayout2: { screen: FlexLayout2 },
+    ChessBoard: { screen: ChessBoard },
+})
 
-// const DrawerStackNavigator = createDrawerNavigator({
-//     DrawerNavigator: { screen: DrawerNavigator }
-// }, {
-//     drawerWidth: 150,
-//     drawerPosition: 'left',
-//     drawerType: "slide",
-//     contentComponent: () => <DrawerComponent />
-// })
+const DrawerStackNavigator = createDrawerNavigator({
+    DrawerNavigator: { screen: DrawerNavigator }
+}, {
+    drawerWidth: 150,
+    drawerPosition: 'left',
+    drawerType: "slide",
+    drawerWidth: "75%",
+    // drawerPosition: 'right',
+    // drawerLockMode: 'locked-closed',
+    contentComponent: () => <DrawerComponent />
+})
 
 const TabTopNavigation = createMaterialTopTabNavigator({
     DashboardNew: {
@@ -93,10 +104,10 @@ const TabTopNavigation = createMaterialTopTabNavigator({
         style: {
             // backgroundColor: 'aqua',
             height: 70,
-
+            justifyContent: 'space-between'
         },
         labelStyle: {
-            fontSize: 12,
+            fontSize: 10,
             textAlign: 'center',
 
         },
@@ -198,18 +209,25 @@ const AutoStack = createStackNavigator({
     Login: { screen: Login },
     Registration: { screen: Registration },
     FavoriteList: { screen: FavoriteList },
-    TabNavigation: { screen: TabNavigation },
-    TabTopNavigation: { screen: TabTopNavigation }
+    LodashDemo: { screen: LodashDemo },
+    CalendarDemo: { screen: CalendarDemo },
+    // TabNavigation: { screen: TabNavigation },
+    // TabTopNavigation: { screen: TabTopNavigation },
+    // DrawerStackNavigator: { screen: DrawerStackNavigator }
     // DashboardNew: { screen: DashboardNew },
+    ReduxDemo: { screen: ReduxDemo },
 }, {
     headerMode: 'none',
 });
 
 const AuthStack = createStackNavigator({
+
+    // DrawerStackNavigator,
     AutoStack,
+
     // TabTopNavigation,
-    TabNavigation,
-    // DrawerStackNavigator
+
+    // TabNavigation,
 }, {
     headerMode: 'none'
 })

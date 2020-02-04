@@ -34,7 +34,8 @@ export default class LoginRegister extends Component {
             } else if (this.state.password != infoData.password) {
                 Alert.alert('please check password')
             } else {
-                this.props.navigation.navigate('DashboardNew');
+                //this.props.navigation.navigate('DashboardNew');
+                this.props.navigation.navigate('DrawerStackNavigator')
             }
         }
     }

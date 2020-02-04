@@ -92,7 +92,7 @@ export default class DesignFlatlist extends Component {
                 <View style={styles.detailContainer}>
                     <FlatList
                         data={DATA}
-                        keyExtractor={(item, index) => index.toString()}
+                        keyExtractor={(index) => index.toString()}
                         // numColumns = {1}
                         renderItem={({ item, index }) =>
                             <View style={{ flex: 1, flexDirection: 'row', }}>

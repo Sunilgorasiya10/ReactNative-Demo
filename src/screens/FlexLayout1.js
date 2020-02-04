@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class FlexLayout1 extends Component {
 
@@ -28,6 +29,9 @@ export default class FlexLayout1 extends Component {
         <View style={styles.sub_container_5}>
           <View style={{ height: 70, flex: 1, justifyContent: 'center', backgroundColor: 'mediumturquoise' }}><Text style={styles.txt}>11</Text></View>
         </View>
+        <TouchableOpacity style={{ margin: 32, alignItems: 'center', padding: 8, backgroundColor: '#333' }} onPress={() => this.props.navigation.navigate('DrawerStackNavigator')}>
+          <Text style={{ color: '#eee' }}>Open Drawer Navigator</Text>
+        </TouchableOpacity>
       </View>
     );
   }
