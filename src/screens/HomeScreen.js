@@ -64,7 +64,18 @@ const DATA = [
         btnName: 'ReduxDemo',
         screenName: 'ReduxDemo'
     },
-
+    // {
+    //     btnName: 'LoginRegRedux',
+    //     screenName: 'LoginRegRedux'
+    // },
+    // {
+    //     btnName: 'RegRedux',
+    //     screenName: 'RegRedux'
+    // },
+    {
+        btnName: 'ReduxCombineRHOC',
+        screenName: 'ReduxCombineRHOC'
+    },
 ]
 
 export default class HomeScreen extends Component {

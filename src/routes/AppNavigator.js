@@ -24,6 +24,9 @@ import { Image } from 'react-native';
 import LodashDemo from '../screens/LodashDemo';
 import CalendarDemo from '../screens/CalendarDemo';
 import ReduxDemo from '../screens/ReduxDemo';
+import LoginRegRedux from '../screens/LoginRegRedux';
+import RegRedux from '../screens/RegRedux';
+import ReduxCombineRHOC from '../screens/ReduxCombineRHOC';
 
 const DrawerNavigator = createStackNavigator({
     HomeScreen: { screen: HomeScreen },
@@ -214,8 +217,11 @@ const AutoStack = createStackNavigator({
     // TabNavigation: { screen: TabNavigation },
     // TabTopNavigation: { screen: TabTopNavigation },
     // DrawerStackNavigator: { screen: DrawerStackNavigator }
-    // DashboardNew: { screen: DashboardNew },
+    DashboardNew: { screen: DashboardNew },
     ReduxDemo: { screen: ReduxDemo },
+    LoginRegRedux: { screen: LoginRegRedux },
+    RegRedux: { screen: RegRedux },
+    ReduxCombineRHOC: { screen: ReduxCombineRHOC }
 }, {
     headerMode: 'none',
 });

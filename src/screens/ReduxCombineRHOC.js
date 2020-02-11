@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { connect } from 'react-redux'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { counterIncrement, counterDecrement } from '../actions'
-class ReduxDemo extends Component {
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
+import withCounter from '../hoc/withCounter'
+import withWelcome from '../hoc/withWelcome';
+
+class ReduxCombineRHOC extends Component {
+
     render() {
+        console.log(this.props);
+        const { counter,
+            welcome: { welcomeText },
+            counterIncrementAction, counterDecrementAction, } = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.counterTitle}>Counter</Text>
+                {/* <TextInput placeholder={'Enter number'} style={{ borderWidth: 1 }}
+                    onChangeText={value => this.updateState(value)}></TextInput> */}
                 <View style={styles.counterContainer}>
-                    <TouchableOpacity onPress={this.props.counterIncrement}>
+                    <TouchableOpacity onPress={counterIncrementAction}>
                         <Text style={styles.buttonText}>+</Text>
                     </TouchableOpacity>
-                    <Text style={styles.buttonText}>{this.props.count}</Text>
-                    <TouchableOpacity onPress={this.props.counterDecrement}>
+                    <Text style={styles.buttonText}>{counter}</Text>
+                    <TouchableOpacity onPress={counterDecrementAction}>
                         <Text style={styles.buttonText}>-</Text>
                     </TouchableOpacity>
                 </View>
+                <Text >{welcomeText}</Text>
+
             </View>
         )
     }
@@ -44,10 +53,4 @@ const styles = StyleSheet.create({
     }
 })
 
-function mapStateToProps(state) {
-    return {
-        count: state
-    }
-}
-
-export default connect(mapStateToProps, { counterIncrement, counterDecrement })(ReduxDemo) 
+export default withWelcome(withCounter(ReduxCombineRHOC));
