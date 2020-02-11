@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import welcomeAction from '../actions';
+import { welcomeAction } from '../actions';
 
-const mapDispatchToProps = () => ({
-    createWelcomeAction: (payload) => {
-        dispatch(welcomeAction(payload));
-    },
+const mapDispatchToProps = (dispatch) => ({
+    createWelcomeAction: (payload) =>
+        dispatch(welcomeAction(payload))
+    ,
 })
 
 const mapStateToProps = (state) => {

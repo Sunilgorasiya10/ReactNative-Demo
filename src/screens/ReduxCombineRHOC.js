@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Button } from 'react-native';
 import withCounter from '../hoc/withCounter'
 import withWelcome from '../hoc/withWelcome';
 
@@ -7,9 +7,7 @@ class ReduxCombineRHOC extends Component {
 
     render() {
         console.log(this.props);
-        const { counter,
-            welcome: { welcomeText },
-            counterIncrementAction, counterDecrementAction, } = this.props;
+        const { counter, welcome: { welcomeText, sss }, counterIncrementAction, counterDecrementAction, createWelcomeAction } = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.counterTitle}>Counter</Text>
@@ -25,7 +23,9 @@ class ReduxCombineRHOC extends Component {
                     </TouchableOpacity>
                 </View>
                 <Text >{welcomeText}</Text>
-
+                <Text >{sss}</Text>
+                <Button title={'button 1'} onPress={() => createWelcomeAction('Button 1')}></Button>
+                <Button title={'button 2'} onPress={() => createWelcomeAction('Button 2')}></Button>
             </View>
         )
     }
