@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, TouchableOpacity, Button } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Button, FlatList } from 'react-native';
 import withCounter from '../hoc/withCounter'
 import withWelcome from '../hoc/withWelcome';
+import withAsync from '../hoc/withAsync';
 
 class ReduxCombineRHOC extends Component {
-
     render() {
-        console.log(this.props);
-        const { counter, welcome: { welcomeText, sss }, counterIncrementAction, counterDecrementAction, createWelcomeAction } = this.props;
+        // console.log(this.props);
+        const { counter, welcome: { welcomeText, sss }, counterIncrementAction, counterDecrementAction,
+            createWelcomeAction, todoData: { todos }, getTodos } = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.counterTitle}>Counter</Text>
@@ -26,6 +27,22 @@ class ReduxCombineRHOC extends Component {
                 <Text >{sss}</Text>
                 <Button title={'button 1'} onPress={() => createWelcomeAction('Button 1')}></Button>
                 <Button title={'button 2'} onPress={() => createWelcomeAction('Button 2')}></Button>
+                <Button title={'button 3'} onPress={() => getTodos('Button 3')}></Button>
+
+                {/* {(todos.length > 0) ? todos[6].title : 'testing'} */}
+                <View style={{ flex: 1 }}>
+                    <FlatList
+                        data={todos}
+                        keyExtractor={(index) => index.toString()}
+                        renderItem={({ item }) =>
+                            <View style={{ flexDirection: 'row', backgroundColor: 'black', margin: 1 }}>
+                                <Text style={{ padding: 5, color: 'white', backgroundColor: 'red' }}>{item.userId}</Text>
+                                <Text style={{ padding: 5, color: 'white', backgroundColor: 'green' }}>{item.id}</Text>
+                                <Text style={{ padding: 5, color: 'white' }}>{item.title}</Text>
+                            </View>
+                        }
+                    />
+                </View>
             </View>
         )
     }
@@ -53,4 +70,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default withWelcome(withCounter(ReduxCombineRHOC));
+export default withWelcome(withCounter(withAsync(ReduxCombineRHOC)));
