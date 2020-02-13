@@ -114,6 +114,11 @@ export default class HomeScreen extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
                     <Text>{'DrawerMenu'}</Text>
                 </TouchableOpacity>
+                <View>
+                    <TouchableOpacity style={styles.btnStyele} >
+                        <Text style={styles.textStyle}>{'AsyncStorageDemo'}</Text>
+                    </TouchableOpacity>
+                </View>
 
                 {/* <View>
                     <TouchableOpacity style = {styles.btnStyele} onPress = {() => this.props.navigation.navigate('FlexLayout1')}>
