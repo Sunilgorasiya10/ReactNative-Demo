@@ -74,3 +74,5 @@ __tests__/
 metro.config.js
 	package-lock.json
 yarn.lock
+package-lock.json
+
